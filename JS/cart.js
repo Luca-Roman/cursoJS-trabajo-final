@@ -2,63 +2,63 @@
 //Funcionalidad para insertar los productos del carrito en la pagina del carrito
 //
 //primero traemos el contenedor donde van a estar los pruductos
-const contenedorProductos = document.getElementById("productos-container");
-const unidadesElement = document.getElementById("unidades");
-const precioElement = document.getElementById("precio");
-const reiniciarCarritoElement = document.getElementById("reiniciar");
+const productsContainer = document.getElementById("products-container");
+const unitiesElement = document.getElementById("unidades");
+const priceElement = document.getElementById("precio");
+const restartCartElement = document.getElementById("reiniciar");
 
-function crearCarrito () {
-    contenedorProductos.innerHTML ="";
-    const productos = JSON.parse(localStorage.getItem("productos"))
+function createCart () {
+    productsContainer.innerHTML ="";
+    const products = JSON.parse(localStorage.getItem("products"))
     
-    if (productos && productos.length > 0) {
-        productos.forEach(producto => {
+    if (products && products.length > 0) {
+        products.forEach(product => {
             const nuevoProducto = document.createElement("div");
-            nuevoProducto.classList = "producto";
+            nuevoProducto.classList = "product";
             nuevoProducto.innerHTML = `
-                <img src= "./img/productos/${producto.id}.jpg">
-                <h3>${producto.nombre}</h3>
-                <p>${producto.precio}</p>
+                <img src= "./img/products/${product.id}.jpg">
+                <h3>${product.name}</h3>
+                <p>${product.price}</p>
                 <div id="div">
                     <button> - </button>
-                    <span class= "cantidad"> ${producto.cantidad} </span> 
+                    <span class= "amount"> ${product.amount} </span> 
                     <button> + </button>
                 </div>
             `;
             nuevoProducto.getElementsByTagName("button")[1].addEventListener("click", (e) => {
-                const cuentaElement = e.target.parentElement.getElementsByTagName("span")[0];
-                cuentaElement.innerText = agregarAlCarrito(producto);
-                actualizarTotales();
+                const countElement = e.target.parentElement.getElementsByTagName("span")[0];
+                countElement.innerText = addToCart(product);
+                updateTotals();
             });
             nuevoProducto.getElementsByTagName("button")[0].addEventListener("click", () => {
-                restarAlCarrito(producto);
-                crearCarrito();
-                actualizarTotales();
+                decreaseCart(product);
+                createCart();
+                updateTotals();
             });
-            contenedorProductos.appendChild(nuevoProducto);
+            productsContainer.appendChild(nuevoProducto);
         });
     }
 };
-crearCarrito();
-actualizarTotales();
+createCart();
+updateTotals();
 
-function actualizarTotales () {
-    const productos = JSON.parse(localStorage.getItem("productos"))
-    let unidades = 0;
-    let precio = 0;
-    if (productos && productos.length > 0) {
-        productos.forEach(producto => {
-            unidades += producto.cantidad;
-            precio += producto.precio * producto.cantidad;
+function updateTotals () {
+    const products = JSON.parse(localStorage.getItem("products"))
+    let amount = 0;
+    let price = 0;
+    if (products && products.length > 0) {
+        products.forEach(product => {
+            amount += product.amount;
+            price += product.price * product.amount;
         });
     }
-    unidadesElement.innerText = unidades;
-    precioElement.innerText = precio;
+    unitiesElement.innerText = amount;
+    priceElement.innerText = price;
 }
 
-reiniciarCarritoElement.addEventListener("click", reiniciarCarrito);
-function reiniciarCarrito () {
-    localStorage.removeItem("productos");
-    actualizarTotales();
-    crearCarrito();
+restartCartElement.addEventListener("click", restartCart);
+function restartCart () {
+    localStorage.removeItem("products");
+    updateTotals();
+    createCart();
 }

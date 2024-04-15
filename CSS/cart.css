@@ -1,20 +1,20 @@
-#productos-container {
+#products-container {
     width: 500px;
     margin: auto;
 }
 
-.producto {
+.product {
     display: flex;
     gap: 15px;
     align-items: center;
 }
 
-.producto img {
+.product img {
     height: 150px;
     aspect-ratio: 1.5;
 }
 
-.producto h3 {
+.product h3 {
     width: 130px;
 }
 
@@ -24,6 +24,6 @@
     align-items: center;
 }
 
-#totales {
+#totals {
     text-align: center;
 }

@@ -1,0 +1,37 @@
+[
+    {
+        "id":1,
+        "name": "Camiseta",
+        "price": 20000
+    },
+    {
+        "id":2,
+        "name": "Pantalon",
+        "price": 18000
+    },
+    {
+        "id":3,
+        "namee": "Medias",
+        "price": 7000
+    },
+    {
+        "id":4,
+        "name": "Campera",
+        "price": 25000
+    },
+    {
+        "id":5,
+        "name": "Buzo",
+        "price": 22000
+    },
+    {
+        "id":8,
+        "name": "Toalla",
+        "price": 12000
+    },
+    {
+        "id":9,
+        "name": "Pelota",
+        "price": 12000
+    }
+]

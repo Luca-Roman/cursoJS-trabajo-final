@@ -30,7 +30,7 @@ nav div {
     height: 35px;
 }
 
-#logo-carrito{
+#logo-cart{
     background-color: white;
     height: 30px;
 }
@@ -43,7 +43,7 @@ nav div {
     color: red;
 }
 
-#cuenta-carrito {
+#cart-amount {
     color: white;
     display: inline-block;
     width: 20px;
