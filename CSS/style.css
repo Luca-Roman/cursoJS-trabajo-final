@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 60px;
+}
+
+header {
+    background-color: black;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+
+}
+
+#logo{
+    height: 35px;
+}
+
+#logo-carrito{
+    background-color: white;
+    height: 30px;
+}
+
+#tienda {
+    color: white;
+}
+
+#river {
+    color: red;
+}
+
+#cuenta-carrito {
+    color: white;
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+}
+
+#logos {
+    display: flex;
+    gap: 20px;
+}
