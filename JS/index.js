@@ -18,7 +18,6 @@ async function getProducts () {
     try {
         const res = await fetch("http://127.0.0.1:5500/cursoJS-trabajo-final/Json/products.json")
         const data = await res.json()
-        console.log(data)
         //return data
         insertProducts(data)
     } catch (error) {

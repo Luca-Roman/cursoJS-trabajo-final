@@ -3,9 +3,7 @@
 //
 //primero traemos el contenedor donde van a estar los pruductos
 const productsContainer = document.getElementById("products-container");
-const unitiesElement = document.getElementById("unidades");
 const priceElement = document.getElementById("precio");
-const restartCartElement = document.getElementById("reiniciar");
 
 function createCart () {
     productsContainer.innerHTML ="";
@@ -43,6 +41,7 @@ createCart();
 updateTotals();
 
 function updateTotals () {
+    const unitiesElement = document.getElementById("unidades");
     const products = JSON.parse(localStorage.getItem("products"))
     let amount = 0;
     let price = 0;
@@ -56,6 +55,7 @@ function updateTotals () {
     priceElement.innerText = price;
 }
 
+const restartCartElement = document.getElementById("reiniciar");
 restartCartElement.addEventListener("click", restartCart);
 function restartCart () {
     localStorage.removeItem("products");
